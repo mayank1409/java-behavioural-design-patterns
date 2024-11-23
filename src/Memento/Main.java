@@ -1,6 +1,7 @@
 package Memento;
 
 public class Main {
+
     public static void main(String[] args) {
         Originator originator = new Originator();
         CareTaker careTaker = new CareTaker();

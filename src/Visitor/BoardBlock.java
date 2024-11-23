@@ -1,9 +1,9 @@
 package Visitor;
 
-public class BoardBlock extends ChessComponent{
+public class BoardBlock extends ChessComponent {
 
-    private String blockColor;
-    private Piece piece;
+    private final String blockColor;
+    private final Piece piece;
 
     public BoardBlock(String name, String blockColor, Piece piece) {
         super(name);

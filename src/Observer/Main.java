@@ -1,8 +1,9 @@
 package Observer;
 
 public class Main {
+
     public static void main(String[] args) {
-        Subject radioSubject = new RadioStation();
+        RadioStation radioSubject = new RadioStation();
 
         Observer vlad = new Person("vlad");
         Observer john = new Person("john");
@@ -19,6 +20,6 @@ public class Main {
         radioSubject.unregister(bharath);
         radioSubject.unregister(john);
 
-        ((RadioStation)radioSubject).updateGoldenNumber(10);
+        radioSubject.updateGoldenNumber(10);
     }
 }

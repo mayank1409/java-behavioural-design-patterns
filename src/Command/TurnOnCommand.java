@@ -2,7 +2,7 @@ package Command;
 
 public class TurnOnCommand implements Command {
 
-    private Receiver receiver;
+    private final Receiver receiver;
 
     public TurnOnCommand(Receiver receiver) {
         this.receiver = receiver;

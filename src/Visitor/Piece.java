@@ -2,7 +2,7 @@ package Visitor;
 
 public class Piece extends ChessComponent {
 
-    private String color;
+    private final String color;
 
     public Piece(String name, String color) {
         super(name);

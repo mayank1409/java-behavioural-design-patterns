@@ -1,6 +1,7 @@
 package Mediator;
 
 public class Main {
+
     public static void main(String[] args) {
         Mediator mediator = new ConcreteMediator();
         ComponentA componentA = new ComponentA(mediator);
@@ -10,9 +11,7 @@ public class Main {
         mediator.register(componentB);
 
         componentA.send();
-
         System.out.println();
-
         componentB.send();
     }
 }

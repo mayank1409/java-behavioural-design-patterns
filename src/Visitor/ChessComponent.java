@@ -1,7 +1,7 @@
 package Visitor;
 
 public abstract class ChessComponent {
-    private String name;
+    private final String name;
 
     public ChessComponent(String name) {
         this.name = name;

@@ -1,10 +1,11 @@
 package ChainOfResponsibility;
 
 public class MainWithChainOfResponsibility {
+
     public static void main(String[] args) {
         MainWithChainOfResponsibility demo = new MainWithChainOfResponsibility();
         Handler vehicleHandler = demo.getValidationHandlers();
-        String vehicleType = "FIRE_TRUCK";
+        String vehicleType = "POLICE";
         vehicleHandler.handle(vehicleType);
     }
 

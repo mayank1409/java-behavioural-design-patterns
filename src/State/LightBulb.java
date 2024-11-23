@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class LightBulb {
 
-    private Map<State, State> lightBulbStates = new HashMap<>();
+    private final Map<State, State> lightBulbStates = new HashMap<>();
 
     State currentState;
 
