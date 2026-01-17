@@ -1,35 +1,66 @@
 package Command;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * Client demonstrates the Command design pattern.
+ * It creates receivers, encapsulates their actions as commands,
+ * and uses an invoker to execute and undo these commands.
+ */
 public class Client {
 
-    private Invoker invoker;
+    private final Invoker invoker;
 
+    /**
+     * Constructs a Client with a new Invoker.
+     */
+    public Client() {
+        this.invoker = new Invoker();
+    }
+
+    /**
+     * Main entry point for the demo.
+     *
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args) {
         Client client = new Client();
         client.run();
     }
 
+    /**
+     * Demonstrates the Command pattern with multiple commands.
+     */
     private void run() {
-        List<Command> commands = new ArrayList<>();
+        System.out.println("=== Command Pattern Demo ===\n");
 
-        // Using Command Pattern
-        Receiver receiver1 = new Light("Flash Light");
-        Command command1 = new TurnOnCommand(receiver1);
-        commands.add(command1);
+        // Create receivers
+        Receiver light = new Light("Living Room");
+        Receiver motor = new Motor("Pump");
 
-        invoker = new Invoker(command1);
+        // Create commands
+        Command turnOnLight = new TurnOnCommand(light);
+        Command turnOffLight = new TurnOffCommand(light);
+        Command turnOnMotor = new TurnOnCommand(motor);
+        Command turnOffMotor = new TurnOffCommand(motor);
+
+        // Execute commands using the invoker
+        System.out.println("--- Executing Commands ---");
+        invoker.setCommand(turnOnLight);
         invoker.executeCommand();
+
+        invoker.setCommand(turnOnMotor);
+        invoker.executeCommand();
+
+        invoker.setCommand(turnOffLight);
+        invoker.executeCommand();
+
+        invoker.setCommand(turnOffMotor);
+        invoker.executeCommand();
+
+        // Demonstrate undo functionality
+        System.out.println("\n--- Undoing Last 2 Commands ---");
+        invoker.undoCommand();
         invoker.undoCommand();
 
-        Receiver receiver2 = new Motor("Motor");
-        Command command2 = new TurnOnCommand(receiver2);
-        commands.add(command2);
-
-        invoker = new Invoker(command2);
-        invoker.executeCommand();
-        invoker.undoCommand();
+        System.out.println("\nHistory size: " + invoker.getHistorySize());
     }
 }
