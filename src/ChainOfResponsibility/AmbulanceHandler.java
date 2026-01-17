@@ -1,6 +1,10 @@
 package ChainOfResponsibility;
 
-public class AmbulanceHandler extends AbstractHandler{
+/**
+ * Handler for AMBULANCE vehicle validation in the Chain of Responsibility pattern.
+ * Performs validation and specific checks required for ambulances.
+ */
+public class AmbulanceHandler extends AbstractHandler {
 
     @Override
     public void handle(String incomingSuspect) {
@@ -11,6 +15,6 @@ public class AmbulanceHandler extends AbstractHandler{
             System.out.println("Check Patient");
             return;
         }
-        this.nextHandler.handle(incomingSuspect);
+        passToNextHandler(incomingSuspect);
     }
 }
