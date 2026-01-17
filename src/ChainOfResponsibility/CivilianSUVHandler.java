@@ -6,9 +6,11 @@ package ChainOfResponsibility;
  */
 public class CivilianSUVHandler extends AbstractHandler {
 
+    private static final String VEHICLE_TYPE = "CIVILIAN_SUV";
+
     @Override
     public void handle(String incomingSuspect) {
-        if ("CIVILIAN_SUV".equals(incomingSuspect)) {
+        if (VEHICLE_TYPE.equals(incomingSuspect)) {
             System.out.println("Validate ID for " + incomingSuspect);
             System.out.println("Do exhaustive search");
             System.out.println("Do Minor Interrogation");
